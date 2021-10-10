@@ -60,18 +60,18 @@ def invite_online_users():
     while True:
         with concurrent.futures.ThreadPoolExecutor(max_workers=200) as executor:
             for i in range(0, 2000, 250):
-                online_users = local.get_online_users(start=i, size=100)
-                for nickname, user_Id in zip(
+                try:
+                	online_users = local.get_online_users(start=i, size=100)
+                	for nickname, user_Id in zip(
                         online_users.nickname, online_users.userId):
-                    try:
-                        print(f"{nickname} Invited to chat")
-                        _ = [
-                            executor.submit(
-                                local.invite_to_chat,
-                                user_Id,
-                                chat_Id)]
-                    except Exception as e:
-                        print(e)
+                        	print(f"{nickname} Invited to chat")
+                        	_ = [
+                        	executor.submit(
+                        	local.invite_to_chat,
+                        	user_Id,
+                        	chat_Id)]
+                except Exception as e:
+                      print(e)
 
  # invite recent users
 
@@ -82,19 +82,18 @@ def invite_recent_users():
     chat_Id = chats(local)
     with concurrent.futures.ThreadPoolExecutor(max_workers=200) as executor:
         for i in range(0, 2000, 250):
-            recent_users = local.get_all_users(
-                type="recent", start=i, size=100)
-            for nickname, user_Id in zip(
+            try:
+            	recent_users = local.get_all_users(type="recent", start=i, size=100)
+            	for nickname, user_Id in zip(
                     recent_users.nickname, recent_users.userId):
-                try:
-                    print(f"{nickname} Invited to chat")
-                    _ = [
-                        executor.submit(
-                            local.invite_to_chat,
-                            user_Id,
-                            chat_Id)]
-                except Exception as e:
-                    print(e)
+                    	print(f"{nickname} Invited to chat")
+                    	_ = [
+                    	executor.submit(
+                    	local.invite_to_chat,
+                        user_Id,
+                        chat_Id)]
+            except Exception as e:
+                  print(e)
 
  # invite user followers
 
@@ -106,16 +105,15 @@ def invite_user_followers():
     user_info = client.get_from_link(input("User Link >> "))
     with concurrent.futures.ThreadPoolExecutor(max_workers=200) as executor:
         for i in range(0, 2000, 250):
-            user_followers = local.get_member_followers(
-                userId=user_info.objectId, start=i, size=100)
-            for nickname, user_Id in zip(
+            try:
+            	user_followers = local.get_member_followers(userId=user_info.objectId, start=i, size=100)
+            	for nickname, user_Id in zip(
                     user_followers.nickname, user_followers.userId):
-                try:
-                    print(f"{nickname} Invited to chat")
-                    _ = [
-                        executor.submit(
-                            local.invite_to_thread,
-                            user_Id,
-                            chat_Id)]
-                except Exception as e:
+                    	print(f"{nickname} Invited to chat")
+                    	_ = [
+                    	executor.submit(
+                    	local.invite_to_thread,
+                        user_Id,
+                        chat_Id)]
+            except Exception as e:
                     print(e)
