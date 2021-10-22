@@ -9,7 +9,7 @@ Invite Bot For AminoApps
 - pip install pyfiglet
 - pip install SAmino
 - pip install tabulate
-- git clone https://github.com/LilZevi/AminoInviteFxck
+- git clone https://github.com/deluvsushi/AminoInviteFxck
 - !Для запуска/For starting!
 - cd AminoInviteFxck
 - python AminoInviteFxck.py
