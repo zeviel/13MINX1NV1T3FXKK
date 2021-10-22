@@ -4,8 +4,8 @@ from tabulate import tabulate
 from colored import fore, back, style, attr
 attr(0)
 print(fore.LIGHT_CORAL + style.BOLD)
-print("""Script by Lil Zevi
-Github : https://github.com/LilZevi""")
+print("""Script by deluvsushi
+Github : https://github.com/deluvsushi""")
 print(pyfiglet.figlet_format("aminoinvitefxck", font="rectangles"))
 print(tabulate(menu_configs.main_menu, tablefmt="psql"))
 select = input("Select >> ")
