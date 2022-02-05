@@ -18,9 +18,9 @@ def communities():
     try:
         clients = client.sub_clients(size=100)
         for x, name in enumerate(clients.name, 1):
-            print(f"{x}.{name}")
+            print(f"-- {x}:{name}")
         while True:
-            com_id = clients.comId[int(input("Select the community >> ")) - 1]
+            com_id = clients.comId[int(input("-- Select the community::: ")) - 1]
             return com_id
     except BaseException:
         communities()
@@ -30,9 +30,9 @@ def chats(sub_client: amino.SubClient):
     try:
         chats = sub_client.get_chat_threads(size=100)
         for z, title in enumerate(chats.title, 1):
-            print(f"{z}.{title}")
+            print(f"-- {z}:{title}")
         while True:
-            chat_id = chats.chatId[int(input("Select The Chat >> ")) - 1]
+            chat_id = chats.chatId[int(input("-- Select the chat::: ")) - 1]
             return chat_id
     except BaseException:
         return
@@ -48,10 +48,9 @@ def invite_online_users():
         with ThreadPoolExecutor(max_workers=100) as executor:
             for i in range(0, 2000, 250):
                 try:
-                	online_users = sub_client.get_online_users(start=i, size=100)
-                	for nickname, user_id in zip(
-                        online_users.nickname, online_users.userId):
-                        	print(f"-- Invited::: {nickname} to chat!")
+                	online_users = sub_client.get_online_users(start=i, size=100).profile.userId
+                	for user_id in online_users:
+                        	print(f"-- Invited::: {user_id} to chat!")
                         	[
                         	executor.submit(
                         	sub_client.invite_to_chat,
@@ -70,10 +69,9 @@ def invite_recent_users():
     with ThreadPoolExecutor(max_workers=100) as executor:
         for i in range(0, 2000, 15000):
             try:
-            	recent_users = sub_client.get_all_users(type="recent", start=i, size=100)
-            	for nickname, user_id in zip(
-                    recent_users.nickname, recent_users.userId):
-                    	print(f"-- Invited::: {nickname} to chat!")
+            	recent_users = sub_client.get_all_users(type="recent", start=i, size=100).profile.userId
+            	for user_id in recent_users:
+                    	print(f"-- Invited::: {user_id} to chat!")
                     	[
                     	executor.submit(
                     	sub_client.invite_to_chat,
@@ -93,9 +91,8 @@ def invite_user_followers():
     with ThreadPoolExecutor(max_workers=100) as executor:
         for i in range(0, 2000, 15000):
             try:
-            	user_followers = sub_client.get_member_followers(userId=user_info.objectId, start=i, size=100)
-            	for nickname, user_id in zip(
-                    user_followers.nickname, user_followers.userId):
+            	user_followers = sub_client.get_member_followers(userId=user_info.objectId, start=i, size=100).profile.userId
+            	for user_id in user_followers:
                     	print(f"-- Invited::: {nickname} to chat!")
                     	[
                     	executor.submit(
