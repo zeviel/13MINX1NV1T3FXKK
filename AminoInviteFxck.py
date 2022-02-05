@@ -1,20 +1,20 @@
-import pyfiglet
-from configs import menu_configs, invite_functions
 from tabulate import tabulate
-from colored import fore, back, style, attr
+from pyfiglet import figlet_format
+from colored import fore, style, attr
+from configs import menu_configs, invite_functions
 attr(0)
-print(fore.LIGHT_CORAL + style.BOLD)
-print("""Script by deluvsushi
+print(f"""{fore.LIGHT_CORAL + style.BOLD}
+Script by deluvsushi
 Github : https://github.com/deluvsushi""")
-print(pyfiglet.figlet_format("aminoinvitefxck", font="rectangles"))
+print(figlet_format("aminoinvitefxck", font="rectangles"))
 print(tabulate(menu_configs.main_menu, tablefmt="psql"))
-select = input("Select >> ")
+select = int(input("-- Select::: "))
 
-if select == "1":
+if select == 1:
 	invite_functions.invite_online_users()
 
-elif select == "2":
+elif select == 2:
 	invite_functions.invite_recent_users()
 
-elif select == "3":
+elif select == 3:
 	invite_functions.invite_user_followers()
