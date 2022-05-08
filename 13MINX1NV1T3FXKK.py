@@ -6,7 +6,7 @@ attr(0)
 print(f"""{fore.LIGHT_CORAL + style.BOLD}
 Script by deluvsushi
 Github : https://github.com/deluvsushi""")
-print(figlet_format("aminoinvitefxck", font="rectangles"))
+print(figlet_format("13MINX1NV1T3FXKK", font="rectangles"))
 print(tabulate(menu_configs.main_menu, tablefmt="psql"))
 select = int(input("-- Select::: "))
 
