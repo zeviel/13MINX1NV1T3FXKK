@@ -1,5 +1,5 @@
-# AminoInviteFxck
-Invite Bot For AminoApps
+# 13MINX1NV1T3FXKK
+Chat invite bot for amino
 
 # Termux
 - apt update -y
@@ -9,7 +9,6 @@ Invite Bot For AminoApps
 - pip install pyfiglet
 - pip install amino
 - pip install tabulate
-- git clone https://github.com/deluvsushi/AminoInviteFxck
-- !Для запуска/For starting!
-- cd AminoInviteFxck
-- python AminoInviteFxck.py
+- git clone https://github.com/deluvsushi/13MINX1NV1T3FXKK
+- cd 13MINX1NV1T3FXKK
+- python 13MINX1NV1T3FXKK.py
