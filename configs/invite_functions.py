@@ -96,7 +96,7 @@ def invite_user_followers():
                     	print(f"-- Invited::: {nickname} to chat!")
                     	[
                     	executor.submit(
-                    	sub_client.invite_to_thread,
+                    	sub_client.invite_to_chat,
                         user_id,
                         chat_id)]
             except Exception as e:
