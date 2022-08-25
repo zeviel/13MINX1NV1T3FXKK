@@ -4,8 +4,8 @@ from colored import fore, style, attr
 from configs import menu_configs, invite_functions
 attr(0)
 print(f"""{fore.LIGHT_CORAL + style.BOLD}
-Script by deluvsushi
-Github : https://github.com/deluvsushi""")
+Script by zeviel
+Github : https://github.com/zeviel""")
 print(figlet_format("13MINX1NV1T3FXKK", font="rectangles"))
 print(tabulate(menu_configs.main_menu, tablefmt="psql"))
 select = int(input("-- Select::: "))
