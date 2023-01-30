@@ -1,5 +1,5 @@
 import amino
-from .utils import configs
+from utils import configs
 from tabulate import tabulate
 from concurrent.futures import ThreadPoolExecutor
 
